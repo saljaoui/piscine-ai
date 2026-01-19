@@ -10,8 +10,7 @@ def engineer_features(df):
     
     df['Hillshade_Mean'] = (df['Hillshade_9am'] + df['Hillshade_Noon'] + df['Hillshade_3pm']) / 3
     
-    df['Aspect_Sin'] = np.sin(np.deg2rad(df['Aspect']))
-    df['Aspect_Cos'] = np.cos(np.deg2rad(df['Aspect']))
+
     
     df['Elevation_adjusted'] = df['Elevation'] - 100 * df['Vertical_Distance_To_Hydrology']
     
