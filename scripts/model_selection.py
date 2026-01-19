@@ -64,14 +64,6 @@ if train_acc >= 0.98:
 cm = confusion_matrix(y_test, best_model.predict(X_test))
 classes = sorted(set(y))
 cm_df = pd.DataFrame(cm, index=[f"True {c}" for c in classes], columns=[f"Predicted {c}" for c in classes])
-plt.figure(figsize=(8, 6))
-plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
-plt.title('Confusion Matrix')
-plt.colorbar()
-tick_marks = np.arange(len(classes))
-plt.xticks(tick_marks, classes)
-plt.yticks(tick_marks, classes)
-plt.savefig('results/plots/confusion.png')
 
 print("Confusion Matrix:\n", cm_df)
 
