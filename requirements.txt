@@ -1,5 +1,5 @@
 jupyter
+numpy
 pandas
-nltk
+matplotlib
 scikit-learn
-tabulate
