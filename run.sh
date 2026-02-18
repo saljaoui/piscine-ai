@@ -20,13 +20,13 @@ declare -A repos=(
 
 for name in "${!repos[@]}"; do
   url="${repos[$name]}"
-  echo "👉 Adding $name"
+  echo "👉 Adding $name into folder $name/"
 
   git remote add "$name" "$url"
   git fetch "$name"
 
-  # Merge and automatically keep incoming files on conflict
-  git merge --allow-unrelated-histories "$name/main" -m "merge $name" -X theirs
+  # Add into its own subfolder with full commit history
+  git subtree add --prefix="$name" "$name/main" --squash
 
   git remote remove "$name"
   echo "✅ Done: $name"
